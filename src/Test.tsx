@@ -4,11 +4,11 @@ const YourComponent = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [textInput, setTextInput] = useState("");
 
-  const handleOptionChange = (event) => {
+  const handleOptionChange = (event: any) => {
     setSelectedOption(event.target.value);
   };
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: any) => {
     setTextInput(event.target.value);
   };
 

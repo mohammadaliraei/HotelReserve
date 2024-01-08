@@ -17,7 +17,8 @@
     "ionicons": "^7.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-ionicons": "^1.5.7"
+    "react-ionicons": "^1.5.7",
+    "react-multi-date-picker": "^4.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

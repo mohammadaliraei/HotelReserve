@@ -3,6 +3,9 @@ import { faPlaneUp, faRightLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Test from "../Test";
 import YourComponent from "../Test";
+import { Calendar } from "react-multi-date-picker";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
 
 const ToggleButton = ({ onClick, isActive, label }: any) => (
   <button
@@ -18,10 +21,26 @@ const ToggleButton = ({ onClick, isActive, label }: any) => (
 const FastSearch = () => {
   const [toggle, setToggle] = useState<any>(true);
   const [activeButton, setActiveButton] = useState<any>(null);
+  const [activeCalender, setActiveCalender] = useState(true);
 
   const handelButtonClick = (button: string) => {
     setActiveButton(button);
   };
+
+  const handelInput = () => {
+    setActiveButton(!activeCalender);
+    console.log(activeCalender);
+  };
+
+  const dataCity = [
+    "تهران",
+    "اهواز",
+    "شیراز",
+    "مشهد",
+    "بندرعباس",
+    "تبریز",
+    "کیش",
+  ];
 
   return (
     <div className="flex flex-col  bg-white  mx-[107px] h-[230px] font rounded-md">
@@ -74,20 +93,41 @@ const FastSearch = () => {
             isActive={activeButton === "button3"}
           />
         </div>
-        <div className="flex flex-1 font-Mikhak">
-          <div className="flex flex-1  justify-end text-center items-center gap-3 ">
+        <div className="bg-red-300 flex items-center">
+          <div>
             <input
+              onChange={() => handelInput()}
               className="border-2 text-end px-6  rounded-md w-[180px] h-[48px]"
-              placeholder="مقصد"
             />
-            <FontAwesomeIcon icon={faRightLeft} />
-            <input
-              className="border-2 text-end px-6  rounded-md w-[180px] h-[48px]"
-              placeholder="مبدا"
-            />
+            <div className="flex absolute">
+              {
+                <Calendar
+                  calendar={persian}
+                  locale={persian_fa}
+                />
+              }
+            </div>
           </div>
-          <YourComponent />
-          <div></div>
+          <div className="flex flex-1 font-Mikhak">
+            <div className="flex flex-1  justify-end text-center items-center gap-3 ">
+              <input
+                list="city"
+                className="border-2 text-end px-6  rounded-md w-[180px] h-[48px]"
+                placeholder="مقصد"
+              />
+              <FontAwesomeIcon icon={faRightLeft} />
+              <input
+                list="city"
+                className="border-2 text-end px-6  rounded-md w-[180px] h-[48px]"
+                placeholder="مبدا"
+              />
+              <datalist id="city">
+                {dataCity.map((city) => (
+                  <option>{city}</option>
+                ))}
+              </datalist>
+            </div>
+          </div>
           <div></div>
         </div>
       </div>
