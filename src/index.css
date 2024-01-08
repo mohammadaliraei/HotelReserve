@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Sans";
+    src: url(./assets/Fonts/Dirooz-FD-WOL.ttf) format("ttf");
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "Mikhak";
+    src: url(./assets/Fonts/Mikhak-Black.ttf) format("ttf");
+  }
+}
