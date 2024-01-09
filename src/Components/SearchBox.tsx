@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { faPlaneUp, faRightLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Test from "../Test";
 import YourComponent from "../Test";
-import { Calendar } from "react-multi-date-picker";
+import DatePicker, { Calendar, DateObject } from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
@@ -21,16 +21,18 @@ const ToggleButton = ({ onClick, isActive, label }: any) => (
 const FastSearch = () => {
   const [toggle, setToggle] = useState<any>(true);
   const [activeButton, setActiveButton] = useState<any>(null);
-  const [activeCalender, setActiveCalender] = useState(true);
+  const [values, setValues] = useState<any>([
+    new DateObject({ calendar: persian }).subtract(0, "days"),
+    new DateObject({ calendar: persian }).add(0, "days"),
+  ]);
 
   const handelButtonClick = (button: string) => {
     setActiveButton(button);
   };
 
-  const handelInput = () => {
-    setActiveButton(!activeCalender);
-    console.log(activeCalender);
-  };
+  useEffect(() => {
+    // console.log(values.date.days);
+  });
 
   const dataCity = [
     "تهران",
@@ -94,19 +96,24 @@ const FastSearch = () => {
           />
         </div>
         <div className="bg-red-300 flex items-center">
-          <div>
-            <input
-              onChange={() => handelInput()}
-              className="border-2 text-end px-6  rounded-md w-[180px] h-[48px]"
+          <div style={{ direction: "rtl" }}>
+            <DatePicker
+              style={{
+                fontFamily: "Mikhak",
+                display: "flex",
+                textAlign: "center",
+
+                height: "48px",
+              }}
+              className="font-Mikhak "
+              dateSeparator="  تا  "
+              value={values}
+              onChange={setValues}
+              range
+              calendar={persian}
+              locale={persian_fa}
+              calendarPosition="bottom-right"
             />
-            <div className="flex absolute">
-              {
-                <Calendar
-                  calendar={persian}
-                  locale={persian_fa}
-                />
-              }
-            </div>
           </div>
           <div className="flex flex-1 font-Mikhak">
             <div className="flex flex-1  justify-end text-center items-center gap-3 ">
