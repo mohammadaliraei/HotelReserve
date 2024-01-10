@@ -3,7 +3,7 @@ import Header from "../Components/Header";
 
 const Home = () => {
   return (
-    <div className="flex flex-1 w-screen h-screen bg-red-300">
+    <div className="flex flex-1 w-screen h-screen">
       <Header />
     </div>
   );

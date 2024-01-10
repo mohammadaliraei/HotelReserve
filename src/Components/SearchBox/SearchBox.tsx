@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { faPlaneUp, faRightLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlaneUp,
+  faRightLeft,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Test from "../Test";
-import YourComponent from "../Test";
-import DatePicker, { Calendar, DateObject } from "react-multi-date-picker";
+import DatePicker, { DateObject } from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+import InputSearchBox from "./InputSearchBox";
 
 const ToggleButton = ({ onClick, isActive, label }: any) => (
   <button
@@ -31,7 +34,7 @@ const FastSearch = () => {
   };
 
   useEffect(() => {
-    // console.log(values.date.days);
+    console.log(values.day);
   });
 
   const dataCity = [
@@ -45,7 +48,7 @@ const FastSearch = () => {
   ];
 
   return (
-    <div className="flex flex-col  bg-white  mx-[107px] h-[230px] font rounded-md">
+    <div className="flex flex-col  bg-white  mx-[107px] h-[230px] font rounded-md shadow-lg ">
       <div className="flex flex-col gap-3 w-full h-full p-[25px]">
         <div className="flex flex-1 flex-row gap-5 justify-end  border-b-2 border-gray-200">
           <button
@@ -95,7 +98,16 @@ const FastSearch = () => {
             isActive={activeButton === "button3"}
           />
         </div>
-        <div className="bg-red-300 flex items-center">
+        <div className=" flex  items-center gap-2 relative">
+          <div>
+            <button className="flex bg-Blue w-[160px] h-[48px] gap-4 justify-center items-center  rounded-md text-white font-Mikhak">
+              جستجو
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+          </div>
+          <div>
+            <InputSearchBox />
+          </div>
           <div style={{ direction: "rtl" }}>
             <DatePicker
               style={{
@@ -105,6 +117,7 @@ const FastSearch = () => {
 
                 height: "48px",
               }}
+              placeholder="تاریخ رفت"
               className="font-Mikhak "
               dateSeparator="  تا  "
               value={values}
@@ -135,7 +148,6 @@ const FastSearch = () => {
               </datalist>
             </div>
           </div>
-          <div></div>
         </div>
       </div>
     </div>

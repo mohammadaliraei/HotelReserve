@@ -7,12 +7,12 @@ import {
   faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 import Nav from "./Nav";
-import SearchBox from "./SearchBox";
+import SearchBox from "../Components/SearchBox/SearchBox";
 
 const Header = () => {
   return (
-    <div>
-      <div className="flex justify-between px-[108px] items-center gap-4 h-[104px] w-full bg-white">
+    <div className="">
+      <div className="flex justify-between  px-[108px] items-center gap-4 h-[104px] w-full bg-white">
         <div className="flex items-center">
           <button className="font-Mikhak flex items-center gap-2 text-white rounded-md px-4 py-2 bg-Blue">
             ورود / ثبت نام
@@ -37,11 +37,13 @@ const Header = () => {
           />
         </div>
       </div>
-      <div>
-        <img src={Images.HomePic} />
-      </div>
-      <div>
-        <SearchBox />
+      <div className="flex">
+        <div className="flex  relative z-0">
+          <img src={Images.HomePic} />
+        </div>
+        <div className="flex absolute top-[300px] z-10">
+          <SearchBox />
+        </div>
       </div>
     </div>
   );
