@@ -81,7 +81,7 @@ const FastSearch = () => {
             />
           </button>
         </div>
-        <div className="flex flex-1 justify-end gap-12 items-center py-4">
+        <div className="flex flex-1 justify-end gap-4 items-center py-4">
           <ToggleButton
             onClick={() => handelButtonClick("button1")}
             isActive={activeButton === "button1"}

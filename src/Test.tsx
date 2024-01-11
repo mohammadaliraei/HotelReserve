@@ -1,25 +1,20 @@
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { Images } from "./assets/Images";
 
-const YourComponent = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
+const Test = () => {
+  const [cityName, SetCityName] = useState<string>("");
 
-  const handleDateChange = (date: any) => {
-    setSelectedDate(date);
+  const handelCityBtn = (name: string) => {
+    SetCityName(name);
   };
-
   return (
-    <div>
-      <label htmlFor="datepicker">Select a date:</label>
-      <DatePicker
-        id="datepicker"
-        selected={selectedDate}
-        onChange={handleDateChange}
-        dateFormat="dd/MM/yyyy"
-      />
+    <div className="flex gap-3 pt-[200px]">
+      <button>hello</button>
+      <button>hello1</button>
+      <button>hello2</button>
+      <button>hello3</button>
     </div>
   );
 };
 
-export default YourComponent;
+export default Test;

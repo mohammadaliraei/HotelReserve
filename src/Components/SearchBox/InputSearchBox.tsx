@@ -27,7 +27,7 @@ const InputSearchBox = () => {
       />
       <div className="flex w-full ">
         {isOpen && (
-          <div className="absolute flex flex-col gap-4 bg-white justify-center rounded-md px-2 py-4 ">
+          <div className="absolute flex flex-col gap-4 mt-3 border-gray-200 border-[1px] bg-white justify-center rounded-md px-2 py-4 ">
             <div className="flex flex-row gap-2">
               <button onClick={() => dispatch(incrementAdults())}>
                 <FontAwesomeIcon
