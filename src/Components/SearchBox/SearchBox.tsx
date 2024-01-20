@@ -48,7 +48,7 @@ const FastSearch = () => {
   ];
 
   return (
-    <div className="flex flex-col  bg-white  mx-[107px] h-[230px] font rounded-md shadow-lg ">
+    <div className="flex flex-col  bg-white  mx-screen h-[230px] font rounded-md shadow-lg ">
       <div className="flex flex-col gap-3 w-full h-full p-[25px]">
         <div className="flex flex-1 flex-row gap-5 justify-end  border-b-2 border-gray-200">
           <button

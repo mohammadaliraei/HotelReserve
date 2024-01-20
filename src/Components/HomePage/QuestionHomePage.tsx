@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 interface DataName {
   id: number;
@@ -54,14 +55,45 @@ const dataName: DataName[] = [
 ];
 
 const QuestionHomePage = () => {
+  const [toggle, SetToggleBtn] = useState<boolean>(false);
+  const [idBtn, SetIdBtn] = useState<number | null>(null);
+
+  const HandelToggleBtn = (index: number) => {
+    SetToggleBtn(!toggle);
+    SetIdBtn(idBtn === index ? null : index);
+  };
+
   return (
-    <div className="flex flex-col border-gray-300 border-[1px] rounded-md">
+    <div className="flex flex-col w-[1180px] border-gray-300  border-[1px] rounded-md">
       {dataName.map((question) => (
         <div key={question.id}>
-          <button className="flex font-Mikhak font-bold w-full px-3 py-4 border justify-between items-center">
-            <FontAwesomeIcon icon={faChevronUp} />
-            {question.title}
+          <button
+            onClick={() => HandelToggleBtn(question.id)}
+            className="flex font-Mikhak font-bold w-full px-3 py-4 border justify-between items-center"
+          >
+            <FontAwesomeIcon
+              icon={
+                toggle && idBtn === question.id ? faChevronDown : faChevronUp
+              }
+              className={`${
+                toggle && idBtn === question.id ? "text-Blue" : "text-black"
+              }`}
+            />
+            <h1
+              className={`${
+                toggle && idBtn === question.id ? "text-Blue" : "text-black"
+              }`}
+            >
+              {question.title}
+            </h1>
           </button>
+          {toggle && idBtn === question.id && (
+            <div className="flex w-full">
+              <div className="flex text-end px-4 w-full justify-end py-2 font-Mikhak">
+                <h1 className="leading-loose ">{question.description}</h1>
+              </div>
+            </div>
+          )}
         </div>
       ))}
     </div>

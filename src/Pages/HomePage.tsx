@@ -10,18 +10,18 @@ const HomePage = () => {
     SetCityName(name);
   };
   return (
-    <>
+    <div className="flex justify-center  w-full">
       <div className="flex flex-col h-full  py-[150px] ml-[107px] mr-[107px] ">
         <div className="flex flex-row w-full h-[328px] gap-4 justify-between ">
           <div className="flex flex-col flex-1 gap-4 ">
-            <div className="flex  bg-Blue   rounded-md">
+            <div className="flex flex-1 rounded-md">
               <img
                 src={Images.HomePagePictureFour}
                 className="h-[150px] object-cover rounded-md"
                 alt="Home Page Picture Four"
               />
             </div>
-            <div className="flex    rounded-md">
+            <div className="flex flex-1 rounded-md">
               <img
                 src={Images.HomePagePictureThree}
                 className="h-[150px] object-cover rounded-md"
@@ -102,12 +102,12 @@ const HomePage = () => {
               04
             </div>
           </div>
-          <div>
+          <div className="flex w-full ">
             <QuestionHomePage />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
