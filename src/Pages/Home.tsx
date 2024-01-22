@@ -7,11 +7,11 @@ import Ttest from "../Components/Ttest";
 
 const Home = () => {
   return (
-    <div className="flex flex-col flex-1 w-screen h-screen">
+    <div className="flex flex-col flex-1 w-full h-screen">
       <Header />
-      <HomePage />
+      {/* <HomePage />
       <Advantages />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };
