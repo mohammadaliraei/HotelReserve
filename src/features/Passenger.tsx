@@ -1,14 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {
   adults: number;
   children: number;
   infants: number;
+  isVisibleNav: boolean;
 }
 const initialState: InitialState = {
   adults: 0,
   children: 0,
   infants: 0,
+  isVisibleNav: true,
 };
 
 export const passengerSlice = createSlice({
@@ -39,6 +41,9 @@ export const passengerSlice = createSlice({
         state.infants -= 1;
       }
     },
+    ChangeSearchBar: (state, action: PayloadAction<boolean>) => {
+      state.isVisibleNav = !action.payload;
+    },
   },
 });
 
@@ -49,6 +54,7 @@ export const {
   decrementChildren,
   incrementInfants,
   decrementInfants,
+  ChangeSearchBar,
 } = passengerSlice.actions;
 
 export default passengerSlice.reducer;

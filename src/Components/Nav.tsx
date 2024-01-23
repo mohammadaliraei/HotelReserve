@@ -11,6 +11,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
+import { useDispatch, useSelector } from "react-redux";
+import { ChangeSearchBar } from "../features/Passenger";
+import { RootState } from "@reduxjs/toolkit/query";
 
 interface names {
   id: number;
@@ -21,11 +24,12 @@ interface names {
 
 const Nav: React.FC = () => {
   const [isVisible, setIsVisible] = useState<Boolean>(false);
+  // const isVisibleNav = useSelector((state,action)=>)
   const handelHumburger = () => {
-    setIsVisible(!isVisible);
-    console.log(isVisible);
+    dispatch(ChangeSearchBar(!isVisible));
+    console.log();
   };
-
+  const dispatch = useDispatch();
   const Names: names[] = [
     { id: 1, name: "صفحه اصلی", link: "/", logo: faHouse },
     { id: 2, name: "بیمه مسافرتی", link: "/", logo: faNoteSticky },
