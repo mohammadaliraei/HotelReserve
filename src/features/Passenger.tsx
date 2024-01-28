@@ -4,13 +4,13 @@ interface InitialState {
   adults: number;
   children: number;
   infants: number;
-  isVisibleNav: boolean;
+  valueReserve: string;
 }
 const initialState: InitialState = {
   adults: 0,
   children: 0,
   infants: 0,
-  isVisibleNav: true,
+  valueReserve: "",
 };
 
 export const passengerSlice = createSlice({
@@ -41,8 +41,9 @@ export const passengerSlice = createSlice({
         state.infants -= 1;
       }
     },
-    ChangeSearchBar: (state, action: PayloadAction<boolean>) => {
-      state.isVisibleNav = !action.payload;
+    ChangeSearchBar: (state, action: PayloadAction<string>) => {
+      state.valueReserve = action.payload;
+      console.log(state.valueReserve);
     },
   },
 });

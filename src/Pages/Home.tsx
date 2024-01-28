@@ -9,8 +9,8 @@ const Home = () => {
   return (
     <div className="flex flex-col flex-1 w-full h-screen">
       <Header />
-      {/* <HomePage />
-      <Advantages />
+      <HomePage />
+      {/* <Advantages />
       <Footer /> */}
     </div>
   );

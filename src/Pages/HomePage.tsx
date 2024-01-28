@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Images } from "../Components/Images";
-import Test from "../Test";
+// import Test from "../Test";
 import QuestionHomePage from "../Components/HomePage/QuestionHomePage";
 
 const HomePage = () => {
@@ -11,7 +11,7 @@ const HomePage = () => {
   };
   return (
     <div className="flex justify-center  w-full">
-      <div className="flex flex-col h-full  py-[150px] ml-[107px] mr-[107px] ">
+      <div className="flex flex-col h-full  md:py-[150px] ml-[107px] mr-[107px] ">
         <div className="flex flex-row w-full h-[328px] gap-4 justify-between ">
           <div className="flex flex-col flex-1 gap-4 ">
             <div className="flex flex-1 rounded-md">

@@ -19,15 +19,17 @@ const InputSearchBox = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className=" ">
-      <input
-        placeholder="تعداد مسافر"
-        className="h-[48px]  text-end rounded-md px-6 border-2 placeholder-black font-Mikhak"
-        onClick={() => setIsOpen(!isOpen)}
-      />
+    <div className="flex flex-col md:w-full w-screen">
+      <div className="flex ">
+        <input
+          placeholder="تعداد مسافر"
+          className="flex t h-[48px] w-full rounded-md px-6 border-2 placeholder-black font-Mikhak"
+          onClick={() => setIsOpen(!isOpen)}
+        />
+      </div>
       <div className="flex w-full ">
         {isOpen && (
-          <div className="absolute flex flex-col gap-4 mt-3 border-gray-200 border-[1px] bg-white justify-center rounded-md px-2 py-4 ">
+          <div className=" flex flex-col md:absolute md:w-auto w-full  gap-4 mt-2 border-gray-200 border-[1px] bg-white justify-center rounded-md px-2 py-4 ">
             <div className="flex flex-row gap-2">
               <button onClick={() => dispatch(incrementAdults())}>
                 <FontAwesomeIcon

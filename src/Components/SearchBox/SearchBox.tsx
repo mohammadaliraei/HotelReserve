@@ -9,17 +9,8 @@ import DatePicker, { DateObject } from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import InputSearchBox from "./InputSearchBox";
-
-const ToggleButton = ({ onClick, isActive, label }: any) => (
-  <button
-    className={`border-2 w-[120px] h-[40px] font-Mikhak rounded-md justify-center text-center ${
-      isActive ? " text-white bg-Blue border-Blue" : "border-Blue"
-    } `}
-    onClick={onClick}
-  >
-    {label}
-  </button>
-);
+import { useDispatch, useSelector } from "react-redux";
+import { ChangeSearchBar } from "../../features/Passenger";
 
 const FastSearch = () => {
   const [toggle, setToggle] = useState<any>(true);
@@ -28,9 +19,13 @@ const FastSearch = () => {
     new DateObject({ calendar: persian }).subtract(0, "days"),
     new DateObject({ calendar: persian }).add(0, "days"),
   ]);
+  const dispatch = useDispatch();
+  const valueReserveBtn = useSelector(
+    (state: any) => state.passenger.valueReserve
+  );
 
   const handelButtonClick = (button: string) => {
-    setActiveButton(button);
+    dispatch(ChangeSearchBar(button));
   };
 
   useEffect(() => {
@@ -81,22 +76,40 @@ const FastSearch = () => {
             />
           </button>
         </div>
-        <div className="flex flex-1 justify-end gap-4 items-center py-4">
-          <ToggleButton
+        <div
+          className="flex flex-1 justify-start gap-4 items-center py-4"
+          dir="rtl"
+        >
+          <button
+            className={`border-2 w-[120px] h-[40px] font-Mikhak rounded-md justify-center text-center ${
+              valueReserveBtn === "button1"
+                ? " text-white bg-Blue border-Blue"
+                : "border-Blue"
+            } `}
             onClick={() => handelButtonClick("button1")}
-            isActive={activeButton === "button1"}
-            label={"چندمسیره"}
-          />
-          <ToggleButton
+          >
+            <h1>رفت</h1>
+          </button>
+          <button
+            className={`border-2 w-[120px] h-[40px] font-Mikhak rounded-md justify-center text-center ${
+              valueReserveBtn === "button2"
+                ? " text-white bg-Blue border-Blue"
+                : "border-Blue"
+            } `}
             onClick={() => handelButtonClick("button2")}
-            isActive={activeButton === "button2"}
-            label={"رفت و برگشت"}
-          />
-          <ToggleButton
-            label={"رفت"}
+          >
+            <h1>رفت و برگشت</h1>
+          </button>
+          <button
+            className={`border-2 w-[120px] h-[40px] font-Mikhak rounded-md justify-center text-center ${
+              valueReserveBtn === "button3"
+                ? " text-white bg-Blue border-Blue"
+                : "border-Blue"
+            } `}
             onClick={() => handelButtonClick("button3")}
-            isActive={activeButton === "button3"}
-          />
+          >
+            <h1>چند مسیره</h1>
+          </button>
         </div>
         <div className=" flex  items-center gap-2 relative">
           <div>

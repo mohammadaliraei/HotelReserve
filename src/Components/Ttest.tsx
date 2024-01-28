@@ -1,59 +1,60 @@
 import React, { useState } from "react";
+import "./App.css"; // Make sure to import your Tailwind CSS styles
 
-const Ttest = () => {
-  const [isOpen, setIsOpen] = useState(false);
+function Ttest() {
+  const [buttonColors, setButtonColors] = useState({
+    button1: false,
+    button2: false,
+    button3: false,
+  });
 
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
+  const handleButtonClick = (button: any) => {
+    // Clone the current state object to avoid mutating it directly
+    const newButtonColors: any = { ...buttonColors };
+
+    // Toggle the color state for the clicked button
+    newButtonColors[button] = !newButtonColors[button];
+
+    // Update the state with the new button color
+    setButtonColors(newButtonColors);
   };
 
   return (
-    <nav className="bg-gray-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white font-bold text-lg">Your Logo</div>
-        <div className="lg:hidden">
-          <button
-            className="text-white focus:outline-none"
-            onClick={toggleNavbar}
-          >
-            Menu
-          </button>
-        </div>
-        <div
-          className={`${
-            isOpen ? "block" : "hidden"
-          } lg:flex lg:items-center lg:w-auto`}
-        >
-          <ul className="lg:flex items-center">
-            <li className="mb-4 lg:mb-0">
-              <a
-                href="#"
-                className="text-white hover:text-gray-300"
-              >
-                Home
-              </a>
-            </li>
-            <li className="mb-4 lg:mb-0">
-              <a
-                href="#"
-                className="text-white hover:text-gray-300"
-              >
-                About
-              </a>
-            </li>
-            <li className="mb-4 lg:mb-0">
-              <a
-                href="#"
-                className="text-white hover:text-gray-300"
-              >
-                Services
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <div className="flex justify-center items-center h-screen">
+      <button
+        className={`border-2 w-[120px] h-[40px] font-Mikhak rounded-md justify-center text-center ${
+          buttonColors.button1
+            ? "text-white bg-Blue border-Blue"
+            : "border-Blue"
+        } `}
+        onClick={() => handleButtonClick("button1")}
+      >
+        <h1>یک طرفه</h1>
+      </button>
+
+      <button
+        className={`border-2 w-[120px] h-[40px] font-Mikhak rounded-md justify-center text-center ${
+          buttonColors.button2
+            ? "text-white bg-Blue border-Blue"
+            : "border-Blue"
+        } `}
+        onClick={() => handleButtonClick("button2")}
+      >
+        <h1>رفت و برگشت</h1>
+      </button>
+
+      <button
+        className={`border-2 w-[120px] h-[40px] font-Mikhak rounded-md justify-center text-center ${
+          buttonColors.button3
+            ? "text-white bg-Blue border-Blue"
+            : "border-Blue"
+        } `}
+        onClick={() => handleButtonClick("button3")}
+      >
+        <h1>رفت</h1>
+      </button>
+    </div>
   );
-};
+}
 
 export default Ttest;
