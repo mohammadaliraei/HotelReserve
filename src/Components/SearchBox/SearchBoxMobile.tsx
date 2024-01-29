@@ -58,7 +58,7 @@ const SearchBoxMobile = () => {
   ];
   return (
     <div
-      className="flex  h-screen w-full py-8"
+      className="flex   w-full pt-8 pb-4"
       dir="rtl"
     >
       <div className="flex w-full flex-col gap-8">
