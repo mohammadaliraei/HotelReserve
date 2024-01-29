@@ -4,22 +4,30 @@ import { Images } from "../Components/Images";
 const HomePage = () => {
   return (
     <div
-      className="flex flex-col w-full h-screen mt-36 px-36"
+      className="flex flex-col w-full h-screen mt-40 max-w-6xl mx-auto"
       dir="rtl"
     >
-      <div className="flex flex-row gap-4 justify-between items-center bg-green-600">
+      <div className="flex flex-row gap-4 justify-between items-center">
         <div>
-          <img src={Images.HomePagePictureOne} />
+          <button>
+            <img src={Images.HomePagePictureOne} />
+          </button>
         </div>
         <div>
-          <img src={Images.HomePagePictureTwo} />
+          <button>
+            <img src={Images.HomePagePictureTwo} />
+          </button>
         </div>
-        <div className="flex flex-col ">
-          <div>
-            <img src={Images.HomePagePictureThree} />
+        <div className="flex flex-col space-y-4">
+          <div className="">
+            <button>
+              <img src={Images.HomePagePictureThree} />
+            </button>
           </div>
-          <div>
-            <img src={Images.HomePagePictureFour} />
+          <div className="">
+            <button>
+              <img src={Images.HomePagePictureFour} />
+            </button>
           </div>
         </div>
       </div>
