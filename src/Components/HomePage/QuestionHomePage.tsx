@@ -64,38 +64,45 @@ const QuestionHomePage = () => {
   };
 
   return (
-    <div className="flex flex-col w-[1180px] border-gray-300  border-[1px] rounded-md">
-      {dataName.map((question) => (
-        <div key={question.id}>
-          <button
-            onClick={() => HandelToggleBtn(question.id)}
-            className="flex font-Mikhak font-bold w-full px-3 py-4 border justify-between items-center"
-          >
-            <FontAwesomeIcon
-              icon={
-                toggle && idBtn === question.id ? faChevronDown : faChevronUp
-              }
-              className={`${
-                toggle && idBtn === question.id ? "text-Blue" : "text-black"
-              }`}
-            />
-            <h1
-              className={`${
-                toggle && idBtn === question.id ? "text-Blue" : "text-black"
-              }`}
+    <div className="flex flex-col max-w-6xl md:mx-auto mx-4 my-7 font-Mikhak">
+      <div className=" mb-4">
+        <h1 className="font-bold text-xl">سوالات متداول</h1>
+      </div>
+      <div className="flex flex-col  border-gray-300 border-[1px] rounded-md">
+        {dataName.map((question) => (
+          <div key={question.id}>
+            <button
+              onClick={() => HandelToggleBtn(question.id)}
+              className="flex font-Mikhak font-bold w-full px-3 py-4 border justify-between items-center"
             >
-              {question.title}
-            </h1>
-          </button>
-          {toggle && idBtn === question.id && (
-            <div className="flex w-full">
-              <div className="flex text-end px-4 w-full justify-end py-2 font-Mikhak">
-                <h1 className="leading-loose ">{question.description}</h1>
+              <h1
+                className={`text-right ${
+                  toggle && idBtn === question.id ? "text-Blue" : "text-black"
+                }`}
+              >
+                {question.title}
+              </h1>
+              <FontAwesomeIcon
+                icon={
+                  toggle && idBtn === question.id ? faChevronDown : faChevronUp
+                }
+                className={`${
+                  toggle && idBtn === question.id ? "text-Blue" : "text-black"
+                }`}
+              />
+            </button>
+            {toggle && idBtn === question.id && (
+              <div className="flex w-full">
+                <div className="flex text-end px-4 w-full justify-end py-2 font-Mikhak">
+                  <h1 className="leading-loose text-right">
+                    {question.description}
+                  </h1>
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      ))}
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

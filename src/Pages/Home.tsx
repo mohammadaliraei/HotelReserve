@@ -10,8 +10,8 @@ const Home = () => {
     <div className="flex flex-col flex-1 w-full h-screen">
       <Header />
       <HomePage />
-      {/* <Advantages />
-      <Footer /> */}
+      <Advantages />
+      <Footer />
     </div>
   );
 };
